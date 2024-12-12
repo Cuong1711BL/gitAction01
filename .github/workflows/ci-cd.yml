@@ -45,7 +45,7 @@ jobs:
 
       # Step 3: Run tests
       - name: Run Tests
-        run: npm test
+        run: "node node_modules/jest/bin/jest.js"
 
   deploy-staging:
     runs-on: ubuntu-latest
