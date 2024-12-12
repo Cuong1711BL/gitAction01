@@ -62,7 +62,5 @@ jobs:
     environment: production
     steps:
       # Require manual approval
-      - name: Request Approval
-        uses: hmarr/auto-approve-action@v2
       - name: Deploy to Production
         run: echo "Deploying to production environment..."
