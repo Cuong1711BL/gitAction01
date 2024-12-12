@@ -1,0 +1,72 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - staging
+  pull_request:
+    branches:
+      - main
+      - staging
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Check out the code
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      # Step 3: Install dependencies
+      - name: Install Dependencies
+        run: npm install
+
+      # Step 4: Run Lint (Optional)
+      - name: Run Linter
+        run: npm run lint
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build  # Wait for build job to finish
+    steps:
+      # Step 1: Check out the code
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      # Step 3: Run tests
+      - name: Run Tests
+        run: npm test
+
+  deploy-staging:
+    runs-on: ubuntu-latest
+    needs: test  # Wait for tests to pass
+    if: github.ref == 'refs/heads/staging'  # Only trigger on staging
+    environment: staging
+    steps:
+      - name: Deploy to Staging
+        run: echo "Deploying to staging environment..."
+
+  deploy-production:
+    runs-on: ubuntu-latest
+    needs: test  # Wait for tests to pass
+    if: github.ref == 'refs/heads/main'  # Only trigger on main
+    environment: production
+    steps:
+      # Require manual approval
+      - name: Request Approval
+        uses: hmarr/auto-approve-action@v2
+      - name: Deploy to Production
+        run: echo "Deploying to production environment..."
