@@ -88,7 +88,7 @@ app.get('/contact', (req, res) => {
     </head>
     <body>
       <header>
-        <h1>Contact Us</h1>
+        <h1>Contact Us!</h1>
         <nav>
           <a href="/">Home</a>
           <a href="/about">About</a>
