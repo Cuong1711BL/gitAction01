@@ -39,7 +39,7 @@ app.get('/', (req, res) => {
       </header>
       <main>
         <h2>Home Page</h2>
-        <p>This is the home page of the Express web application. Use the navigation menu to explore other pages.</p>
+        <p>This is the home page of the Express web application. Use the navigation menu to explore other pages!!</p>
       </main>
       <footer>
         <p>&copy; 2024 Express Demo</p>
