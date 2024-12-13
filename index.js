@@ -69,7 +69,7 @@ app.get('/about', (req, res) => {
         </nav>
       </header>
       <main>
-        <p>We are building a simple Express application to demonstrate its capabilities!!!!!!</p>
+        <p>We are building a simple Express application to demonstrate its capabilities!!!!!!???</p>
       </main>
     </body>
     </html>
