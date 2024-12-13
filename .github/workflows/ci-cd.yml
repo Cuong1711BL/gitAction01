@@ -10,6 +10,8 @@ on:
       - master
       - staging
   workflow_dispatch:
+  schedule:
+    - cron: "* * * * *"  # Runs every day at 2:00 AM UTC
 
 jobs:
   build:
