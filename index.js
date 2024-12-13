@@ -69,7 +69,7 @@ app.get('/about', (req, res) => {
         </nav>
       </header>
       <main>
-        <p>We are building a simple Express application to demonstrate its capabilities!</p>
+        <p>We are building a simple Express application to demonstrate its capabilities!!!!!!</p>
       </main>
     </body>
     </html>
@@ -124,7 +124,7 @@ app.use((req, res) => {
         <h1>404 - Page Not Found</h1>
       </header>
       <main>
-        <p>Sorry, the page you're looking for doesn't exist. <a href="/">Return to Home</a></p>
+        <p>Sorry, the page you're looking for doesn't exist.<a href="/">Return to Home</a></p>
       </main>
     </body>
     </html>
