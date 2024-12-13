@@ -46,10 +46,12 @@ jobs:
       # Step 3: Run tests
       - name: Run Tests
         run: "node node_modules/jest/bin/jest.js --forceExit"
+
   deploy-staging:
     runs-on: ubuntu-latest
     needs: test  # Wait for tests to pass
     if: github.ref == 'refs/heads/staging'  # Only trigger on staging
+    #if: github.base_ref == 'staging'
     environment: staging
     steps:
       - name: Deploy to Staging
@@ -58,7 +60,8 @@ jobs:
   deploy-production:
     runs-on: ubuntu-latest
     needs: test  # Wait for tests to pass
-    if: github.ref == 'refs/heads/main'  # Only trigger on main
+    if: github.ref == 'refs/heads/master'  # Only trigger on main
+    #if: github.base_ref == 'master'
     environment: production
     steps:
       # Require manual approval
