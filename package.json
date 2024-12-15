@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "echo 'Building the application.....'",
+    "build": "echo 'Building the application.......'",
     "start": "node index.js",
     "test": "npx jest"
   },
