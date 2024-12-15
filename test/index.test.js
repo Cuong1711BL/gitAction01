@@ -5,7 +5,7 @@ let server;
 beforeAll(() => {
   server = app.listen(0, () => {
     const port = server.address().port;
-    console.log(`Test server running on port ${port}`);
+    console.log(`Test server is running on port ${port}`);
   });
 });
 

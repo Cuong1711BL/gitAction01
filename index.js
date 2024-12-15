@@ -42,6 +42,7 @@ app.get('/', (req, res) => {
         <p>This is the home page of the Express web application. Use the navigation menu to explore other pages!!</p>
         <p>This is for staging branch<p>
         <p>This is for staging branch 2<p>
+        <p>This is for testing stash function 2<p>
       </main>
       <footer>
         <p>&copy; 2024 Express Demo</p>

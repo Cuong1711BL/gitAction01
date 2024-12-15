@@ -27,6 +27,15 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      # Step 3: Cache dependencies
+      - name: Cache Node.js Modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ matrix.node-version }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ matrix.node-version }}-
+
       # Step 3: Install dependencies
       - name: Install Dependencies
         run: npm install
