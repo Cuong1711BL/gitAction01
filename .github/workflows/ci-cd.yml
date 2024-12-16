@@ -87,6 +87,19 @@ jobs:
     if: github.ref == 'refs/heads/master'  # Only trigger on master
     environment: production
     steps:
-      # Require manual approval
+      # Step 1: Deploy to Production
       - name: Deploy to Production
-        run: echo "Deploying to production environment..."
+        id: deploy
+        run: |
+          echo "Deploying to production environment..."
+          # Simulated failure (uncomment to test rollback)
+          # exit 1
+
+      # Step 2: Rollback on Failure
+      - name: Rollback to Last Stable Version
+        if: failure()  # Only run if the deployment step fails
+        run: |
+          echo "Deployment failed! Rolling back to the last stable version..."
+          # Simulate rollback by deploying the last stable version
+          docker pull myapp:stable
+          docker run -d -p 80:80 myapp:stable
