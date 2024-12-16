@@ -79,7 +79,7 @@ jobs:
     environment: staging
     steps:
       - name: Deploy to Staging
-        run: 
+        run: |
           echo "Deploying to staging environment..."
           exit 1
 
